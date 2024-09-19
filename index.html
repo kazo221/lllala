@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Show Cookies</title>
+    <title>Show Cookie</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,31 +12,40 @@
             padding: 10px;
             border-radius: 4px;
             background-color: #f9f9f9;
+            max-width: 600px;
+        }
+        pre {
+            word-wrap: break-word;
         }
     </style>
 </head>
 <body>
-    <h1>Displayed Cookies</h1>
+    <h1>Displayed Cookie</h1>
     <div class="cookie-container" id="cookie-container">
-        <!-- The cookies will be displayed here -->
+        <!-- The cookie will be displayed here -->
     </div>
 
     <script type="text/javascript">
         // Function to get all cookies
-        function getCookies() {
-            var cookies = document.cookie;
-            return cookies;
+        function getCookie(name) {
+            var value = `; ${document.cookie}`;
+            var parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
         }
 
-        // Function to display cookies on the page
-        function displayCookies() {
+        // Display the specific cookie
+        function displayCookie() {
             var cookieContainer = document.getElementById('cookie-container');
-            var cookies = getCookies();
-            cookieContainer.textContent = cookies ? cookies : 'No cookies found';
+            var cookieValue = getCookie('sid'); // Adjust the cookie name as needed
+            if (cookieValue) {
+                cookieContainer.textContent = `Cookie value: ${cookieValue}`;
+            } else {
+                cookieContainer.textContent = 'Cookie not found';
+            }
         }
 
-        // Call the function to display cookies
-        displayCookies();
+        // Call the function to display the cookie
+        displayCookie();
     </script>
 </body>
 </html>
